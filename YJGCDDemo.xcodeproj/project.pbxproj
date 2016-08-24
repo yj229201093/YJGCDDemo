@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B0C76861D6D70D800731322 /* CommonMethodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C76851D6D70D800731322 /* CommonMethodsViewController.m */; };
 		6BF44F861D6C374900BEAD31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44F851D6C374900BEAD31 /* main.m */; };
 		6BF44F891D6C374900BEAD31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44F881D6C374900BEAD31 /* AppDelegate.m */; };
-		6BF44F8C1D6C374900BEAD31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44F8B1D6C374900BEAD31 /* ViewController.m */; };
 		6BF44F8F1D6C374900BEAD31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF44F8D1D6C374900BEAD31 /* Main.storyboard */; };
 		6BF44F911D6C374900BEAD31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF44F901D6C374900BEAD31 /* Assets.xcassets */; };
 		6BF44F941D6C374900BEAD31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF44F921D6C374900BEAD31 /* LaunchScreen.storyboard */; };
 		6BF44F9F1D6C374900BEAD31 /* YJGCDDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44F9E1D6C374900BEAD31 /* YJGCDDemoTests.m */; };
 		6BF44FAA1D6C374A00BEAD31 /* YJGCDDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FA91D6C374A00BEAD31 /* YJGCDDemoUITests.m */; };
+		6BF44FB91D6C376E00BEAD31 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FB81D6C376E00BEAD31 /* MainViewController.m */; };
+		6BF44FBC1D6C43B400BEAD31 /* SynchronousSerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FBB1D6C43B400BEAD31 /* SynchronousSerialViewController.m */; };
+		6BF44FBF1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FBE1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.m */; };
+		6BF44FC21D6C43EA00BEAD31 /* AsynSerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FC11D6C43EA00BEAD31 /* AsynSerialViewController.m */; };
+		6BF44FC51D6C43F800BEAD31 /* AsynConcurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FC41D6C43F800BEAD31 /* AsynConcurrencyViewController.m */; };
+		6BF44FC81D6C47DC00BEAD31 /* ImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF44FC71D6C47DC00BEAD31 /* ImageData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B0C76841D6D70D800731322 /* CommonMethodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMethodsViewController.h; sourceTree = "<group>"; };
+		6B0C76851D6D70D800731322 /* CommonMethodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethodsViewController.m; sourceTree = "<group>"; };
 		6BF44F811D6C374900BEAD31 /* YJGCDDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJGCDDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF44F851D6C374900BEAD31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6BF44F871D6C374900BEAD31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6BF44F881D6C374900BEAD31 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6BF44F8A1D6C374900BEAD31 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6BF44F8B1D6C374900BEAD31 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6BF44F8E1D6C374900BEAD31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6BF44F901D6C374900BEAD31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BF44F931D6C374900BEAD31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,18 @@
 		6BF44FA51D6C374900BEAD31 /* YJGCDDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJGCDDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF44FA91D6C374A00BEAD31 /* YJGCDDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJGCDDemoUITests.m; sourceTree = "<group>"; };
 		6BF44FAB1D6C374A00BEAD31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BF44FB71D6C376E00BEAD31 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6BF44FB81D6C376E00BEAD31 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6BF44FBA1D6C43B400BEAD31 /* SynchronousSerialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronousSerialViewController.h; sourceTree = "<group>"; };
+		6BF44FBB1D6C43B400BEAD31 /* SynchronousSerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronousSerialViewController.m; sourceTree = "<group>"; };
+		6BF44FBD1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronousConcurrencyViewController.h; sourceTree = "<group>"; };
+		6BF44FBE1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronousConcurrencyViewController.m; sourceTree = "<group>"; };
+		6BF44FC01D6C43EA00BEAD31 /* AsynSerialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynSerialViewController.h; sourceTree = "<group>"; };
+		6BF44FC11D6C43EA00BEAD31 /* AsynSerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynSerialViewController.m; sourceTree = "<group>"; };
+		6BF44FC31D6C43F800BEAD31 /* AsynConcurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynConcurrencyViewController.h; sourceTree = "<group>"; };
+		6BF44FC41D6C43F800BEAD31 /* AsynConcurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynConcurrencyViewController.m; sourceTree = "<group>"; };
+		6BF44FC61D6C47DC00BEAD31 /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
+		6BF44FC71D6C47DC00BEAD31 /* ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +121,21 @@
 			children = (
 				6BF44F871D6C374900BEAD31 /* AppDelegate.h */,
 				6BF44F881D6C374900BEAD31 /* AppDelegate.m */,
-				6BF44F8A1D6C374900BEAD31 /* ViewController.h */,
-				6BF44F8B1D6C374900BEAD31 /* ViewController.m */,
+				6BF44FB71D6C376E00BEAD31 /* MainViewController.h */,
+				6BF44FB81D6C376E00BEAD31 /* MainViewController.m */,
 				6BF44F8D1D6C374900BEAD31 /* Main.storyboard */,
+				6BF44FBA1D6C43B400BEAD31 /* SynchronousSerialViewController.h */,
+				6BF44FBB1D6C43B400BEAD31 /* SynchronousSerialViewController.m */,
+				6BF44FBD1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.h */,
+				6BF44FBE1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.m */,
+				6BF44FC01D6C43EA00BEAD31 /* AsynSerialViewController.h */,
+				6BF44FC11D6C43EA00BEAD31 /* AsynSerialViewController.m */,
+				6BF44FC31D6C43F800BEAD31 /* AsynConcurrencyViewController.h */,
+				6BF44FC41D6C43F800BEAD31 /* AsynConcurrencyViewController.m */,
+				6B0C76841D6D70D800731322 /* CommonMethodsViewController.h */,
+				6B0C76851D6D70D800731322 /* CommonMethodsViewController.m */,
+				6BF44FC61D6C47DC00BEAD31 /* ImageData.h */,
+				6BF44FC71D6C47DC00BEAD31 /* ImageData.m */,
 				6BF44F901D6C374900BEAD31 /* Assets.xcassets */,
 				6BF44F921D6C374900BEAD31 /* LaunchScreen.storyboard */,
 				6BF44F951D6C374900BEAD31 /* Info.plist */,
@@ -270,9 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BF44F8C1D6C374900BEAD31 /* ViewController.m in Sources */,
 				6BF44F891D6C374900BEAD31 /* AppDelegate.m in Sources */,
+				6BF44FB91D6C376E00BEAD31 /* MainViewController.m in Sources */,
+				6BF44FC51D6C43F800BEAD31 /* AsynConcurrencyViewController.m in Sources */,
+				6BF44FC81D6C47DC00BEAD31 /* ImageData.m in Sources */,
+				6BF44FBC1D6C43B400BEAD31 /* SynchronousSerialViewController.m in Sources */,
+				6B0C76861D6D70D800731322 /* CommonMethodsViewController.m in Sources */,
+				6BF44FBF1D6C43D600BEAD31 /* SynchronousConcurrencyViewController.m in Sources */,
 				6BF44F861D6C374900BEAD31 /* main.m in Sources */,
+				6BF44FC21D6C43EA00BEAD31 /* AsynSerialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJGCDDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.net.yangjian.www.YJGCDDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJGCDDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.net.yangjian.www.YJGCDDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +534,7 @@
 				6BF44FB01D6C374A00BEAD31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6BF44FB11D6C374A00BEAD31 /* Build configuration list for PBXNativeTarget "YJGCDDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +543,7 @@
 				6BF44FB31D6C374A00BEAD31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6BF44FB41D6C374A00BEAD31 /* Build configuration list for PBXNativeTarget "YJGCDDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +552,7 @@
 				6BF44FB61D6C374A00BEAD31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
