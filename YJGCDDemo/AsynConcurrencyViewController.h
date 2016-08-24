@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AsynConcurrencyViewController.h
 //  YJGCDDemo
 //
 //  Created by GongHui_YJ on 16/8/23.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface AsynConcurrencyViewController : UIViewController
 
 @end
-
