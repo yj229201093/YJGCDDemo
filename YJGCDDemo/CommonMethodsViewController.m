@@ -37,25 +37,33 @@
  */
 - (IBAction)delayExecution:(id)sender {
 
+//    [self apply]; // 重复执行
+    [self barrier];
+}
+
+/**
+ *  延迟执行的方法
+ */
+- (void)delay{
     NSLog(@"打印线程----- %@", [NSThread currentThread]);
     // 延时执行方式一 使用NSObject的方法
     // 2秒后再调用self的run方法
-//    [self performSelector:@selector(loadImage) withObject:nil afterDelay:2.0];
+    //    [self performSelector:@selector(loadImage) withObject:nil afterDelay:2.0];
 
     // 延迟执行方式二 使用GCD函数
-       // 在同步函数中执行
-        // 注意 如果使用异步函数 dispatch_async 那么[self performSelector:@selector(loadImage) withObject:nil afterDelay:5.0]; 不会被执行
-//    dispatch_queue_t queue = dispatch_queue_create("yangjian.net.cn", 0);
-//    dispatch_sync(queue, ^{
-//        [self performSelector:@selector(loadImage) withObject:nil afterDelay:2.0];
-//    });
+    // 在同步函数中执行
+    // 注意 如果使用异步函数 dispatch_async 那么[self performSelector:@selector(loadImage) withObject:nil afterDelay:5.0]; 不会被执行
+    //    dispatch_queue_t queue = dispatch_queue_create("yangjian.net.cn", 0);
+    //    dispatch_sync(queue, ^{
+    //        [self performSelector:@selector(loadImage) withObject:nil afterDelay:2.0];
+    //    });
 
     // 延迟执行方式三 可以安排其线程---> 主队列
-//    dispatch_queue_t queue = dispatch_get_main_queue();
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), queue, ^{
-//        NSLog(@"主队列--延迟执行------%@",[NSThread currentThread]);
-//        [self gcdLoadImage];
-//    });
+    //    dispatch_queue_t queue = dispatch_get_main_queue();
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), queue, ^{
+    //        NSLog(@"主队列--延迟执行------%@",[NSThread currentThread]);
+    //        [self gcdLoadImage];
+    //    });
 
     // 延迟执行方式四 可以安排其线程---> 并发队列
     //1、获取全局并发队列
@@ -69,6 +77,7 @@
     });
 
 }
+
 
 /**
  *  gcd延迟执行
@@ -353,6 +362,90 @@
     });
 }
 
+
+/**
+ *  重复执行某个任务，但是注意这个方法没有办法异步执行（为了不阻塞线程可以使用dispatch_async()包装一下再执行）。
+ */
+- (void)apply{
+    // 获取全局的并发队列
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_apply(4, queue, ^(size_t index) {
+        NSLog(@"copy-%ld", index);
+        NSLog(@"重复执行4次");
+    });
+
+    // 打印结果 index 不会顺序执行
+    /**
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351646] copy-3
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351637] copy-1
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351640] copy-2
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351395] copy-0
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351646] 重复执行4次
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351637] 重复执行4次
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351395] 重复执行4次
+     2016-08-25 10:04:49.995 YJGCDDemo[4412:351640] 重复执行4次
+
+     */
+}
+
+/**
+ *   使用此方法创建的任务首先会查看队列中有没有别的任务要执行，如果有，则会等待已有任务执行完毕再执行；同时在此方法后添加的任务必须等待此方法中任务执行后才能执行。（利用这个方法可以控制执行顺序，例如前面先加载最后一张图片的需求就可以先使用这个方法将最后一张图片加载的操作添加到队列，然后调用dispatch_async()添加其他图片加载任务）
+ */
+- (void)barrier{
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t queue = dispatch_queue_create("RICHARD", DISPATCH_QUEUE_CONCURRENT); // 创建并发队列
+
+    dispatch_async(queue, ^{
+        NSLog(@"下载图片1 --- %@", [NSThread currentThread]);
+        UIImage *image = [self requestImageData:@"http://atth.eduu.com/album/201203/12/1475134_1331559643qMzc.jpg"];
+
+        // 回到主线程
+        dispatch_queue_t mainQueue1 = dispatch_get_main_queue();
+        dispatch_async(mainQueue1, ^{
+            self.imageViewOne.image = image;
+        });
+    });
+
+    dispatch_async(queue, ^{
+        NSLog(@"下载图片2 --- %@", [NSThread currentThread]);
+    });
+
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"dispatch_barrier_async 下载图片3  --- %@", [NSThread currentThread]);
+        UIImage *image = [self requestImageData:@"http://5.26923.com/download/pic/000/335/06efd7b7d40328f1470d4fd99a214243.jpg"];
+        dispatch_async(main_queue, ^{
+            self.imageViewThree.image = image;
+        });
+    });
+
+
+
+    dispatch_async(queue, ^{
+        NSLog(@"下载图片4 --- %@", [NSThread currentThread]);
+    });
+
+    dispatch_async(queue, ^{
+        NSLog(@"下载图片5 --- %@", [NSThread currentThread]);
+        UIImage *image = [self requestImageData:@"http://h.hiphotos.baidu.com/image/pic/item/dc54564e9258d109a4d1165ad558ccbf6c814d23.jpg"];
+        dispatch_async(main_queue, ^{
+            self.imageViewTwo.image = image;
+        });
+    });
+
+
+    // 打印结果分析：1、 12 执行玩完 执行3  再执行45  2、 12顺序不定 45顺序不定
+    /**
+     2016-08-25 10:47:00.560 YJGCDDemo[4436:367515] 下载图片2 --- <NSThread: 0x7ff720f13ac0>{number = 47, name = (null)}
+     2016-08-25 10:47:00.560 YJGCDDemo[4436:367518] 下载图片1 --- <NSThread: 0x7ff720e1c5d0>{number = 48, name = (null)}
+     2016-08-25 10:47:00.560 YJGCDDemo[4436:367102] dispatch_barrier_async 下载图片3  --- <NSThread: 0x7ff720d9b7d0>{number = 43, name = (null)}
+     2016-08-25 10:47:00.560 YJGCDDemo[4436:367293] 下载图片4 --- <NSThread: 0x7ff720c9e250>{number = 45, name = (null)}
+     2016-08-25 10:47:00.560 YJGCDDemo[4436:367516] 下载图片5 --- <NSThread: 0x7ff720dba290>{number = 46, name = (null)}
+
+     */
+
+
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
