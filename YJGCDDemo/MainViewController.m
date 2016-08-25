@@ -86,7 +86,8 @@
         3、一次性执行
         4、延迟2秒执行
         5、执行某个代码片段N次
-        5、队列组的使用
+        6、队列组的使用
+        7、dispatch_barrier_async
 
     五、代码示例 在CommonMethodsViewCotroller类
         下载两张照片完后，合并照片。
